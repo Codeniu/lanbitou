@@ -1,4 +1,4 @@
-# 1 docker镜像源
+# 1 镜像源
 
 >  setting > Docker Engine
 
@@ -50,7 +50,7 @@ ubuntu              latest              1d622ef86b13        47 hours ago        
 golang              1.11-alpine         e116d2efa2ab        8 months ago        345MB
 ```
 
-# 3.apt-get
+# 3.安装apt-get
 
 1. 备份
 
@@ -150,3 +150,21 @@ docker search mysql
 sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Passw0rd" -p 1433:1433 --name mssql -d mcr.microsoft.com/mssql/server:2017-latest
 ```
 
+
+
+
+
+# 8安装vim
+
+```
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+echo "deb http://mirrors.163.com/debian/ jessie main non-free contrib" >/etc/apt/sources.list
+echo "deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
+echo "deb-src http://mirrors.163.com/debian/ jessie main non-free contrib" >>/etc/apt/sources.list
+echo "deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
+
+apt-get update 
+apt-get install -y vim
+
+```

@@ -73,18 +73,120 @@ wget是一个linux下的下载工具，类似于windows下的迅雷。
 
 wget是一个Linux环境下用于从World Wide Web上提取文件的工具，这是一个GPL许可证下的自由软件，其作者为Hrvoje Niksic 。wget支持HTTP和FTP协议，支持代理服务器和断点续传功能，能够自动递归远程主机的目录，找到合乎条件的文件并将其下载到本地硬盘上；如果必要，wget将恰当地转换页面中的超级连接以在本地生成可浏览的镜像。由于没有交互式界面，wget可在后台运行，截获并忽略HANGUP信号，因此在用户推出登录以后，仍可继续运行。通常，wget用于成批量地下载Internet网站上的文件，或制作远程网站的镜像。
 
-# 安装vim
+
+
+# systemctl
+
+systemd 是 Linux 下的一款系统和服务管理器，检视和控制systemd的主要命令是systemctl。
+
+**详情：**
+
+https://www.cnblogs.com/lxjshuju/p/7183689.html
+
+http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+
+
+
+显示 系统状态:
 
 ```
-mv /etc/apt/sources.list /etc/apt/sources.list.bak
-
-echo "deb http://mirrors.163.com/debian/ jessie main non-free contrib" >/etc/apt/sources.list
-echo "deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
-echo "deb-src http://mirrors.163.com/debian/ jessie main non-free contrib" >>/etc/apt/sources.list
-echo "deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
-
-apt-get update 
-apt-get install -y vim
-
+$ systemctl status
 ```
 
+输出激活的单元：
+
+```
+$ systemctl
+```
+
+下面命令等效：
+
+```
+$ systemctl list-units
+```
+
+输出执行失败的单元：
+
+```
+$ systemctl --failed
+```
+
+全部可用的单元文件存放在 /usr/lib/systemd/system/ 和 /etc/systemd/system/ 文件夹（后者优先级更高）。
+
+查看全部已安装服务：
+
+```
+$ systemctl list-unit-files
+```
+
+马上激活单元：
+
+```
+# systemctl start <单元>
+```
+
+马上停止单元：
+
+```
+# systemctl stop <单元>
+```
+
+重新启动单元：
+
+```
+# systemctl restart <单元>
+```
+
+又一次载入配置：
+
+```
+# systemctl reload <单元>
+```
+
+输出单元执行状态：
+
+```
+$ systemctl status <单元>
+```
+
+检查单元是否配置为自己主动启动：
+
+```
+$ systemctl is-enabled <单元>
+```
+
+开机自己主动激活单元：
+
+```
+# systemctl enable <单元>
+```
+
+取消开机自己主动激活单元：
+
+```
+# systemctl disable <单元>
+```
+
+禁用一个单元(禁用后，间接启动也是不可能的)：
+
+```
+# systemctl mask <单元>
+```
+
+取消禁用一个单元：
+
+```
+# systemctl unmask <单元>
+```
+
+显示单元的手冊页（必须由单元文件提供）：
+
+```
+# systemctl help <单元>
+```
+
+又一次载入 systemd，扫描新的或有变动的单元：
+
+```
+# systemctl daemon-reload
+```
