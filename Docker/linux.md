@@ -190,3 +190,193 @@ $ systemctl is-enabled <单元>
 ```
 # systemctl daemon-reload
 ```
+
+
+
+
+
+# 守护进程
+
+什么是守护进程？
+守护进程（Daemon Process），也就是通常说的 Daemon 进程（精灵进程），是 Linux 中的后台服务进程。它是一个生存期较长的进程，通常独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。
+
+
+
+守护进程是个特殊的孤儿进程，这种进程脱离终端，为什么要脱离终端呢？之所以脱离于终端是为了避免进程被任何终端所产生的信息所打断，其在执行过程中的信息也不在任何终端上显示。由于在 Linux 中，每一个系统与用户进行交流的界面称为终端，每一个从此终端开始运行的进程都会依附于这个终端，这个终端就称为这些进程的控制终端，当控制终端被关闭时，相应的进程都会自动关闭。
+
+
+
+Linux 的大多数服务器就是用守护进程实现的。比如，Internet 服务器 inetd，Web 服务器 httpd 等。
+
+
+
+**如何查看守护进程**
+在终端敲：ps axj
+
+a 表示不仅列当前用户的进程，也列出所有其他用户的进程
+x 表示不仅列有控制终端的进程，也列出所有无控制终端的进程
+j 表示列出与作业控制相关的信息
+
+
+
+![YrPNid.png](https://s1.ax1x.com/2020/05/15/YrPNid.png)
+
+**从上图可以看出守护进行的一些特点：**
+
+守护进程基本上都是以超级用户启动（ UID 为 0 ）
+没有控制终端（ TTY 为 ？）
+终端进程组 ID 为 -1 （ TPGID 表示终端进程组 ID）
+————————————————
+版权声明：本文为CSDN博主「lianghe_work」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lianghe_work/article/details/47659889
+
+
+
+
+
+# linux快捷键
+
+```
+ctrl+l	清屏
+
+ctrl+a	移动光标到行首
+ctrl+e			行尾
+
+ctrl+r	查找历史命令
+
+ctrl+u	清除光标前内容
+
+
+```
+
+
+
+
+
+# 测试工程师必须要掌握的linux命令
+
+**软件测试工程师linux十大场景命令使用**
+
+1.**实时查看tomcat日志文件查看：**
+
+```
+cd /home/tomcat/logs #也可用相对目录
+tail –f  catalina.out #实时打印日志文件
+ctrl+c #退出查看
+```
+
+**2.修改配置文件内容**
+
+最常见的就是修改环境变量
+
+```
+vim /etc/profile输入字母i，
+进入编辑模式（INSERT）输入内容，
+按esc，进入命令模式 。
+执行:wq，保持修改。
+输入 soucre /etc/profile 使环境变量生效。
+可以通过 cat  /etc/profile查看文件是否修改成功。
+```
+
+[vim编辑器使用](http://mp.weixin.qq.com/s?__biz=MzI5NzIyMjQwNA==&mid=2247483730&idx=1&sn=9b37524fa3811554a4ced2e335e66acf&chksm=ecb92939dbcea02f4bc8b881f0b52a8d25f186638d6c32321edfb78136f1e57ecce3210eeb86&scene=21#wechat_redirect)
+
+
+
+**3.查看tomcat进程，杀死进程，重启进程。**
+
+```
+查看tomcat进程
+ps -ef|grep tomcat
+ps –aux|grep tomcat
+杀死进程
+kill -9 进程ID
+ps -ef|grep tomcat#查看进程是否已关闭
+进入tomcat的bin目录cd /usr/local/tomcat/bin
+启动tomcat./startup.sh
+```
+
+**4.压缩解压缩文件**
+
+```
+tar cvf a.tar 1.txt 2.txt 3.txt#将3个文件放到文件包a.tar中。
+tar cvf /tmp/a1.tar *.txt#指定包存放的位置。、
+tar xvf a.tar#将文件解压缩到当前目录。
+tar -zcvf a.tar.gz *.txt#打包与压缩为a.tar.gz。
+tar -zxvf a.tar.gz#解压缩并解包。
+```
+
+**5.上传/下载**
+
+在xshell中可以通过下面的命令进行上传下载：
+
+```
+一般般需要安装，可使用 yum install lrzszrz：选择上传文件sz 文件名：选择下载路径
+```
+
+**6.文件查找**
+
+[文件查找](http://mp.weixin.qq.com/s?__biz=MzI5NzIyMjQwNA==&mid=2247483740&idx=1&sn=5f11ca0d9098fa3be447b6229ae117c9&chksm=ecb92937dbcea021d7ffaaed31f9e7e0217f01a0be99fcc831439fd6b7274718607ea17dd04d&scene=21#wechat_redirect)
+
+**7.权限修改**
+
+[linux用户管理，及权限修改](http://mp.weixin.qq.com/s?__biz=MzI5NzIyMjQwNA==&mid=2247483736&idx=1&sn=c9e7016d4128b600c4bdc6499b1932d2&chksm=ecb92933dbcea0253f472b29c361bd509646708d6ad05954377f632ffbe3312fecd90cd60eaa&scene=21#wechat_redirect)
+
+**8.移动、复制命令**
+
+```
+移动mv
+移动当前目录文件夹AA 到/home/aa/
+mv AA/ /home/aa/
+移动当前目录文件a.txt到 /home/aa/目录，并重命名为b.txt
+mv a.txt /home/aa/b.txt
+
+复制cp
+复制当前目录文件a.txt到/home/B目录
+cp a.txt /home/B
+
+复制文件夹 AA到/home/B目录
+cp -r AA/ /home/B
+
+跨服务器复制：scp
+```
+
+**9.服务器性能监控**
+
+top： 类似于windows的任务管理器，能够实时监控系统的运行状态，主要显示系统中各个进程的资源使用情况，如cpu、内存、负载等。
+
+![img](https://mmbiz.qpic.cn/mmbiz_png/XPVzqsbF8CRRzavQVjeBGJOsukRogypgP1cavU1iciao3X774V898Phadxc6ZVPQR9MIgiboibgE6f87hM43OnHdcw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+```
+free  -h
+```
+
+查看服务器内存使用情况。
+
+![img](https://mmbiz.qpic.cn/mmbiz_png/XPVzqsbF8CRRzavQVjeBGJOsukRogypghwNujibkKygmucxVTHianv9tyAfBfgfYOkxDEoCb421ITwEwLTibOJibSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+**10.其他技巧**
+
+```
+1.快速清屏 ctrl+l
+2.快速罗列所有文件及文件夹 ll
+3.命令补全，输入部分命令，点击tab键。
+4.输入 history ，查看历史命令执行记录。
+5.命令 -help：查看命令帮助
+```
+
+**linux学习方法：**
+
+1.最快掌握linux命令的办法就是多敲命令，多实践。
+
+2.安装一个虚拟机，可以选择VMware， 在虚拟机安装个Linux操作系统，如centos。
+
+3.学会使用SecureCRT 或 Xshell远程连接服务器。
+
+4.会使用基本的命令后，就可以尝试安装配置一些软件，如JDK，mysql，redis，tomcat等，  这样就能把零散的命令结合起来，刚开始会遇到很多问题，但是你熟悉几遍之后发现你敲键盘的手会如此飞快。
+
+5.在掌握linux命令之后，就可以尝试写一些shell脚本，把一些重复的工作自动化，如定时备份文件，一键部署脚本等。
+
+
+
+
+
