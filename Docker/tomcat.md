@@ -70,3 +70,6 @@ docker cp <local path> <container long id:contanier path>
 docker cp /usr/local/niu/apache-tomcat-9.0.24/webapps/dams fe3ce7d5fbc93c9cedafe362bd091a2ebed9babe610f52a3545ea85cd58a67a3:/usr/local/tomcat/webapps
 ```
 
+### 5我的部署
+
+[niu](http://39.97.184.218:8081/niu/)
