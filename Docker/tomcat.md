@@ -8,6 +8,8 @@ docker run -idt -p 8081:8080 tomcat
 
 `-p 8081:8080`	将本地8081端口映射到容器的8080端口
 
+`-d`	diff的意思，官方解释：Inspect changes to files or directories on a container's filesystem。保存文件变更
+
 ### 2.进入tomcat容器
 
 ```
@@ -46,13 +48,13 @@ docker commit -m="has update" -a="runoob" e218edb10161 runoob/ubuntu:v2
 
 ### 4.把项目部署到tomcat
 
-查看tomcat容器id
+查看tomcat容器uuid
 
 ```
 docker inspect -f '{{.Id}}' <container name>
 ```
 
-得到：容器长id
+得到：容器长uuid
 
 ```js
 fe3ce7d5fbc93c9cedafe362bd091a2ebed9babe610f52a3545ea85cd58a67a3
