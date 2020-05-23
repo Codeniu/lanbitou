@@ -75,3 +75,9 @@ docker cp /usr/local/niu/apache-tomcat-9.0.24/webapps/dams fe3ce7d5fbc93c9cedafe
 ### 5我的部署
 
 [niu](http://39.97.184.218:8081/niu/)
+
+
+
+
+
+15、隋华臣+当代文学思潮+牛艺颖+170202075+2017法学院法学二班
