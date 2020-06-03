@@ -161,3 +161,20 @@ http://39.97.184.218:8089/
 2
 
 ![tkMufH.png](https://s1.ax1x.com/2020/05/27/tkMufH.png)
+
+
+
+
+
+### 添加静态文件夹服务
+
+```
+  location /upload/ {
+            alias /usr/share/nginx/html/images/;
+            autoindex on; //显示索引
+            autoindex_exact_size on; //显示大小
+            autoindex_localtime on;   //显示时间
+        }
+```
+
+http://39.97.184.218:8089/upload/1.png

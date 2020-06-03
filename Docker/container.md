@@ -65,3 +65,24 @@ docker commit -m="has update" -a="runoob" e218edb10161 runoob/ubuntu:v2
 
 - **-m**：提交的描述。
 - **-a**：作者。
+
+
+
+## 容器状态为Exit（1）时的处理
+
+1.第一步查看日志
+
+```
+docker logs -f <container name>
+```
+
+一般在这就能找到问题：可以看到是我们的配置文件有问题
+
+```
+[root@iz2ze7hl9oxqoqpukjw25 containers]# docker logs -f nginx2
+nginx: [emerg] unknown directive "//显示索引" in /etc/nginx/nginx.conf:50
+nginx: [emerg] unknown directive "//显示索引" in /etc/nginx/nginx.conf:50
+nginx: [emerg] unexpected "}" in /etc/nginx/nginx.conf:52
+nginx: [emerg] unknown directive "//显示索引" in /etc/nginx/nginx.conf:50
+```
+
