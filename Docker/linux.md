@@ -342,17 +342,11 @@ cp -r AA/ /home/B
 
 **9.服务器性能监控**
 
-top： 类似于windows的任务管理器，能够实时监控系统的运行状态，主要显示系统中各个进程的资源使用情况，如cpu、内存、负载等。
-
-![img](https://mmbiz.qpic.cn/mmbiz_png/XPVzqsbF8CRRzavQVjeBGJOsukRogypgP1cavU1iciao3X774V898Phadxc6ZVPQR9MIgiboibgE6f87hM43OnHdcw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
 ```
 free  -h
 ```
 
-查看服务器内存使用情况。
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/XPVzqsbF8CRRzavQVjeBGJOsukRogypghwNujibkKygmucxVTHianv9tyAfBfgfYOkxDEoCb421ITwEwLTibOJibSQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 **10.其他技巧**
 

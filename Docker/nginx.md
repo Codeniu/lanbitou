@@ -166,7 +166,7 @@ http://39.97.184.218:8089/
 
 
 
-### 添加静态文件夹服务
+### 7.添加静态文件夹服务
 
 ```
   location /upload/ {
@@ -178,3 +178,95 @@ http://39.97.184.218:8089/
 ```
 
 http://39.97.184.218:8089/upload/1.png
+
+
+
+
+
+### 8.--net=host 命令
+
+Docker中的host模式指定是容器与主机享受相同的network namespace，在这种情况下，我们访问主机端口就能访问我们的容器。比如说我们运行tomcat容器并且用
+`-- network=host` 来指定我们的网络模式为host，这样我们访问本机的8080端口就能访问到我们的tomcat容器。下面这段是官网对于host模式的定义:
+
+
+
+### 9 启动第coral-isc节点
+
+
+
+#### 1. coral-isc-web
+
+nginx.conf
+
+```
+	server {
+		listen 8090;
+		server_name  39.97.184.218;
+		location  /  {
+			root  /usr/local/niu/coral-isc-web/web;
+			index  index.html;
+		}
+	}
+```
+
+容器命令:
+
+```
+docker run -it -d  --name coral-isc-web -v /usr/local/niu/coral-isc-web/nginx.conf:/etc/nginx/nginx.conf -v  /usr/local/niu/coral-isc-web/web:/usr/local/niu/coral-isc-web/web --privileged --net=host nginx
+```
+
+访问：http://39.97.184.218:8090/
+
+
+
+#### 2. coral-isc-server
+
+nginx.conf
+
+```
+	server {
+		listen 8091;
+		server_name  39.97.184.218;
+		location  /  {
+			root  /usr/local/niu/coral-isc-server/server;
+			index  index.html;
+		}
+	}
+```
+
+容器命令:
+
+```
+docker run -it -d  --name coral-isc-server -v /usr/local/niu/coral-isc-server/nginx.conf:/etc/nginx/nginx.conf -v  /usr/local/niu/coral-isc-server/server:/usr/local/niu/coral-isc-server/server --privileged --net=host nginx
+```
+
+访问：http://39.97.184.218:8091/
+
+
+
+server中应该部署coral-isc的war包。
+
+
+
+####  3. pams
+
+nginx.conf
+
+```
+	server {
+		listen 8092;
+		server_name  39.97.184.218;
+		location  /  {
+			root  /usr/local/niu/pams/pams-vue;
+			index  index.html;
+		}
+	}
+```
+
+容器命令:
+
+```
+docker run -it -d  --name pams -v /usr/local/niu/pams/nginx.conf:/etc/nginx/nginx.conf -v  /usr/local/niu/pams/pams-vue:/usr/local/niu/pams/pams-vue --privileged --net=host nginx
+```
+
+访问：http://39.97.184.218:8092/

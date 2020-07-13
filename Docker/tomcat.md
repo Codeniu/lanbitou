@@ -1,4 +1,4 @@
-
+/home/tomcat-isc/webapps
 
 ### 1.运行tomcat容器
 
@@ -76,4 +76,21 @@ docker cp /usr/local/niu/apache-tomcat-9.0.24/webapps/dams fe3ce7d5fbc93c9cedafe
 
 [niu](http://39.97.184.218:8081/niu/)
 
+### 6 挂载目录
+
+
+
+/home/tomcat-isc/webapps
+
+/usr/local/tomcat/webapps
+
+
+
+/home/tomcat-isc/logs
+
+/usr/local/tomcat/logs
+
+```
+docker run -idt --name tomcat-isc -p 8100:8080 -v /home/tomcat-isc/webapps:/usr/local/tomcat/webapps -v /home/tomcat-isc/logs:/usr/local/tomcat/logs youngniu/tomcat:niu
+```
 
