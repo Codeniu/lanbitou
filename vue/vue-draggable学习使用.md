@@ -103,12 +103,3 @@ scrollSensitivity: 30, // px, how near the mouse must be to an edge to start scr
  Sortable   [https://github.com/RubaXa/Sortable](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FRubaXa%2FSortable)
 
 
-
-
-
-            <draggable
-              v-model="planSelectedImageList"
-              class="draggable-content plan"
-              :group="{ name: 'img', pull: 'clone', put: false }"
-              @change="log"
-            >
