@@ -240,7 +240,7 @@ export default {
 
 
 
-### mian.js引用
+### 全局引用
 
 ```js
 
@@ -314,22 +314,87 @@ Viewer.setDefaults({
 
 
 
-### src使用
+### js使用
 
 ```js
 import Viewer from 'viewerjs';
 import 'viewerjs/dist/viewer.css';
 
+<span
+	style="cursor: pointer;"
+	@click="priview"
+>预览</span>
 
-let src = '<image src>'
-let image = new Image();
-image.src = src;
+// 大图预览
+priview() {
+    var src = 'img-url'; // 填写图片地址
+    var image = new Image();
+    image.src = src;
+    var viewer = new Viewer(image, {
+        hidden: function() {
+            viewer.destroy();
+        },
+    });
+    viewer.show();
+},
+```
 
-let viewer = new Viewer(image, {
-    hidden: function() {
-    	viewer.destroy();
-    }
-});
-viewer.show();
+
+
+
+
+# 示例：
+
+## 1.以组件方式
+
+```html
+<div v-show="false">
+      <viewer
+        ref="viewer"
+        :images="imgArr"
+        class="viewer"
+        @inited="inited"
+      >
+        <template slot-scope="scope">
+          <img
+            v-for="(src,index) in scope.images"
+            :key="index"
+            :src="src"
+          />
+          {{ scope.options }}
+        </template>
+      </viewer>
+ </div>
+
+	  <span
+      style="cursor: pointer;"
+      @click="handleRow"
+      >预览</span>
+
+
+
+```
+
+js
+
+```js
+// 图片列表
+imgArr:[]       
+
+		// 初始化
+        inited(viewer) {
+            this.$viewer = viewer;
+        },
+            
+        // 显示
+        show() {
+            this.$viewer.show();
+        },
+            
+		// 大图预览
+        handleRow() {
+            this.show();
+        },
+
 ```
 

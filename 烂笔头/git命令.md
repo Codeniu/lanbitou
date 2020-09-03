@@ -99,3 +99,97 @@ HEAD^的意思是上一个版本，也可以写成HEAD~1
 `git commit --amend`
 
 此时会进入默认vim编辑器，修改注释完毕后保存就好了。
+
+# 3.Git Log命令
+
+## 单行
+
+```
+git log --oneline
+```
+
+## 按日期
+
+```shell
+git log --after="2020-15-05"
+
+git log --after="2020-15-05" --before="2020-25-05"
+
+git log --after="yesterday" // shows only commits from yeserday
+
+git log --after="today" // shows only today commits
+
+git log --before="10 day ago" // omits last 10 days commits
+
+git log --after="1 week ago" //show only commits from last week
+
+git log --after="2 week ago"
+
+git log --after="2 month ago" // shows only last 2 months commits
+```
+
+
+
+## git日志与差异更改
+
+```shell
+git log -p
+```
+
+此命令将显示具有差异更改的日志。这样您就可以知道每次提交中所做的更改。
+
+在上图中，您可以看到git diff的变化。
+
+## 按作者过滤提交
+
+```shell
+git log --author="Srebalaji"
+```
+
+上面的命令将过滤出特定
+作者所做的提交。请注意，Git按正则表达式模式过滤掉。因此，不必担心
+确切的名称匹配或区分大小写。
+
+Git日志可以采用多个选项，因此您可以根据需要组合选项。例如，
+
+```shell
+git log --after="1 week ago" --author="srebalji" -p
+```
+
+## 通过日志消息过滤提交
+
+有时，您需要通过日志消息过滤提交。Git接受一个
+正则表达式模式来搜索日志消息并显示所有
+匹配的提交。
+
+```
+git log --grep="ISSUE-43560"
+```
+
+## 按文件过滤提交
+
+有时，您需要进行所有已影响某些特定文件的提交更改。这将在许多地方出现。
+
+```
+git log main.rb
+```
+
+## 仅显示合并提交
+
+此命令有助于我们了解对当前分支所做的合并。
+
+```
+git log --merges
+```
+
+上面的命令将仅显示当前分支中的合并提交。而已。
+
+## 显示分支之间的差异
+
+我们已经在以前的问题之一中看到了此命令。
+
+```
+git log master..develop
+```
+
+该命令将帮助您显示所有来自development的提交，但这些提交不在master分支中。这样，您可以知道有多少新提交添加到了master分支中不存在的develop分支中。并在比较之前确保您具有本地的更新更改。
