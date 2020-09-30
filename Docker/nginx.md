@@ -49,11 +49,11 @@ mkdir -p /usr/dokcer_nginx_data/{conf,conf.d,html,log}
 - 2启动挂载后的容器
 
  ```
-docker run --name nginx -d -p 8089:80 \
--v /usr/mynginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro \
--v /usr/mynginx/log:/var/log/nginx \
--v /usr/mynginx/html:/usr/share/nginx/html \
--v /usr/mynginx/conf.d:/etc/nginx/conf.d \
+docker run --name damsp -d -p 18089:80 \
+-v /usr/local/niu/mynginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro \
+-v /usr/local/niu/mynginx/log:/var/log/nginx \
+-v /usr/local/niu/mynginx/html:/usr/share/nginx/html \
+-v /usr/local/niu/mynginx/conf.d:/etc/nginx/conf.d \
 nginx
  ```
 
