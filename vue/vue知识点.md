@@ -1,9 +1,3 @@
-## 生命周期
-
- ![img](E:\工作\烂笔头\images\lifecycle.png) 
-
-
-
 ### 1.钩子函数：created:
 
 1. created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。

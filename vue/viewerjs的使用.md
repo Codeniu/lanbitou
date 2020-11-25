@@ -1,4 +1,4 @@
-### 图像处理的流程：
+# 图像处理的流程：
 
 1. 扫描图像经过“旋转、纠偏、裁边、去污”后保存为原始图像；
 2. 批量高清转换（去噪点、黑白阈值、jpg损耗、RGB调色）后生成高清图像；
@@ -8,27 +8,14 @@
 
 
 
-### 图片显示
-
-```html
-<el-image :src="imgUrl" fit="fill" style="padding:5px;">
-    <div slot="placeholder" class="image-slot">
-      加载中
-    <span class="dot">...</span>
-  </div>
-</el-image>
-```
-
-
-
-### 图片查看插件
+# 图片查看插件
 
 1. [vue-photo-preview]( https://blog.csdn.net/wcharles666/article/details/81332867 )
 2. [previewer.js]( https://blog.csdn.net/cxxc1976549895/article/details/82895892 )
 
 
 
-在vue页面中获取viewer对象
+## 在vue页面中获取viewer对象
 
 ```vue
 <template>
@@ -175,7 +162,7 @@ export default {
 
 
 
-### viewer以组件形式引用
+## viewer以组件形式引用
 
 ```vue
 <!--
@@ -240,7 +227,7 @@ export default {
 
 
 
-### 全局引用
+## 全局引用
 
 ```js
 
@@ -314,7 +301,7 @@ Viewer.setDefaults({
 
 
 
-### js使用
+## js使用
 
 ```js
 import Viewer from 'viewerjs';
