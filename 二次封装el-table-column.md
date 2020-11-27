@@ -580,7 +580,7 @@ import Sortable from 'sortablejs';
 
 
 ```vue
-        <tl-table
+<tl-table
             v-loading="loading"
             :data="tableData"
             :tableHeader="tableHeader"
@@ -658,4 +658,3 @@ js
             });
         },            
 ```
-
