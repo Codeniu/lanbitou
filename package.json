@@ -1,0 +1,15 @@
+{
+    "name": "lanbitou-vuepress",
+    "version": "1.0.0",
+    "description": "收藏夹",
+    "main": "index.js",
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "author": "codeniu",
+    "license": "ISC",
+    "dependencies": {
+        "vuepress": "^1.7.1"
+    }
+}
