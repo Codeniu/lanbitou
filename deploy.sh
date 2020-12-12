@@ -14,7 +14,7 @@ touch .nojekyll
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy3'
 
 git push -f "https://${access_token}@github.com/Codeniu/lanbitou.git" master:gh-pages
 
