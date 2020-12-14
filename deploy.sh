@@ -4,7 +4,7 @@
 set -e
 
 # 生成静态文件
-npm run build
+npm run docs:build
 
 # 进入生成的文件夹
 cd docs/.vuepress/dist
@@ -14,7 +14,7 @@ touch .nojekyll
 
 git init
 git add -A
-git commit -m 'deploy3'
+git commit -m 'deploy'
 
 git push -f "https://${access_token}@github.com/Codeniu/lanbitou.git" master:gh-pages
 
