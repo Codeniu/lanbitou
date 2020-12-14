@@ -1,6 +1,7 @@
 # 文章收集
 
 ::: tip 说明
+推荐：https://panjiachen.github.io/awesome-bookmarks/
 主要是用来收集汇总平时看过得一些不错的文章，方便日后查找
 :::
 
