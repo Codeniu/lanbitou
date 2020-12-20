@@ -1,3 +1,5 @@
+## 容器
+
 ### 容器改名
 
 ```
@@ -6,15 +8,15 @@ docker rename <container name> <newcontainer name>
 
 ### 基本命令
 
-| 命令                           | 描述                        |
-| ------------------------------ | :-------------------------- |
-| docker ps -a                   |                             |
-| docker ps -l                   |                             |
-| docker start <container id>    |                             |
-| docker stop <contaienr name>   |                             |
-| docker rm <contaienr name>     |                             |
-| docker top <contaienr name>    | 查看 WEB 应用程序容器的进程 |
-| docker inspect<contaienr name> | 查看 Docker 的底层信息      |
+| 命令                            | 描述                        |
+| ------------------------------- | :-------------------------- |
+| docker ps -a                    |                             |
+| docker ps -l                    |                             |
+| docker start "container id"     |                             |
+| docker stop "contaienr_name"    |                             |
+| docker rm "contaienr name"      |                             |
+| docker top "contaienr name"     | 查看 WEB 应用程序容器的进程 |
+| docker inspect "contaienr name" | 查看 Docker 的底层信息      |
 
 ### 运行容器
 

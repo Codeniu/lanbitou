@@ -25,5 +25,6 @@ exports.inferSiderbars = () => {
       },
     ];
   });
+  console.log("sidebar", sidebar);
   return sidebar;
 };

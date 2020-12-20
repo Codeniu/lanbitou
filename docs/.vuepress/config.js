@@ -38,7 +38,7 @@ module.exports = {
     editLinks: true,
     docsDir: "docs",
     editLinkText: "在 GitHub 上编辑此页",
-    sidebarDepth: 4,
+    sidebarDepth: 3,
   },
   configureWebpack: {
     resolve: {
@@ -48,7 +48,7 @@ module.exports = {
     },
   },
   markdown: {
-    config: (md) => {
+    extendMarkdown: (md) => {
       // use more markdown-it plugins!
       md.use(require("markdown-it-include"));
     },

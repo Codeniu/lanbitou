@@ -1,4 +1,6 @@
-# 启动runner：
+## CICD
+
+### 启动 runner：
 
 ```
  $ docker run -d --name gitlab-runner --restart always \
@@ -7,11 +9,7 @@
    gitlab/gitlab-runner:latest
 ```
 
-
-
-
-
-# 注册runner
+### 注册 runner
 
 ```
 gitlab-runner register
@@ -26,21 +24,21 @@ gitlab-runner register
   --tag-list "run" \
   --run-untagged \
   --locked="false"
-  
-  
+
+
 ```
 
-1. 输入gitlab的服务URL
-2. 输入gitlab-ci的Toekn
-3. 关于集成服务中对于这个runner的描述
-4. 给这个gitlab-runner输入一个标记，这个tag非常重要，在后续的使用过程中需要使用这个tag来指定gitlab-runner
-5. 是否运行在没有tag的build上面。在配置gitlab-ci的时候，会有很多job，每个job可以通过tags属性来选择runner。这里为true表示如果job没有配置tags，也执行
-6. 是否锁定runner到当前项目
-7. 选择执行器，gitlab-runner实现了很多执行器，可用在不同场景中运行构建，详情可见[GitLab Runner Executors](https://docs.gitlab.com/runner/executors/README.html)，这里选用Docker模式
+1. 输入 gitlab 的服务 URL
+2. 输入 gitlab-ci 的 Toekn
+3. 关于集成服务中对于这个 runner 的描述
+4. 给这个 gitlab-runner 输入一个标记，这个 tag 非常重要，在后续的使用过程中需要使用这个 tag 来指定 gitlab-runner
+5. 是否运行在没有 tag 的 build 上面。在配置 gitlab-ci 的时候，会有很多 job，每个 job 可以通过 tags 属性来选择 runner。这里为 true 表示如果 job 没有配置 tags，也执行
+6. 是否锁定 runner 到当前项目
+7. 选择执行器，gitlab-runner 实现了很多执行器，可用在不同场景中运行构建，详情可见[GitLab Runner Executors](https://docs.gitlab.com/runner/executors/README.html)，这里选用 Docker 模式
 
+#CICD
 
-
-# runner的基本命令
+### runner 的基本命令
 
 ```
 查看状态
@@ -48,14 +46,12 @@ gitlab-runner status
 
 查看runner服务
 gitlab-ci-multi-runner list
-        
+
 重启runner，发现他会自动去执行触发runner的任务
 执行gitlab-ci-multi-runner restart
 ```
 
-
-
-# 编写.gitlab-ci.yml
+### 编写.gitlab-ci.yml
 
 ```
 # docker镜像
@@ -89,13 +85,9 @@ job1:
     - docker
 ```
 
+### 解决 gitlab-runner 执行 docker 命令提示权限不足的问题
 
-
-
-
-# 解决gitlab-runner执行docker命令提示权限不足的问题
-
-1. 将gitlab-runner用户添加到docker组
+1. 将 gitlab-runner 用户添加到 docker 组
 
 ```javascript
 sudo usermod -aG docker gitlab-runner
@@ -107,7 +99,7 @@ sudo usermod -aG docker gitlab-runner
 sudo -u gitlab-runner -H docker info
 ```
 
-# 完整配置：
+### 完整配置：
 
 **Dockerfile**
 
@@ -118,17 +110,15 @@ COPY /dist /app
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
 
-打包完成后创建nginx镜像
+打包完成后创建 nginx 镜像
 
 步骤：
 
-1. 在镜像的根目录创建app文件夹 
+1. 在镜像的根目录创建 app 文件夹
 
 2. 将打包后的文件复制过去 （/dist 指的是当前项目路径）
 
-3. 将项目中的nginx配置文件作为镜像的配置文件
-
-
+3. 将项目中的 nginx 配置文件作为镜像的配置文件
 
 **nginx.conf**
 
@@ -165,54 +155,49 @@ http {
 }
 ```
 
-
-
 **gitlab-ci.yml**
 
 ```yml
 stages: # Stages 表示构建阶段，这里有两个阶段 install, deploy
-    - build
-    - deploy
+  - build
+  - deploy
 
 project_build: # Jobs 表示构建工作，表示某个 Stage 里面执行的工作。
-    stage: build
-    only: # 定义了只有在被merge到了dev分支上 才会执行部署脚本。
-        - njx-dev
-    tags:
-        - vue
-    script:
-        - echo "=====开始依赖安装======"
-        - npm install --verbose --registry=https://registry.npm.taobao.org #安装依赖
-        - echo "=====开始打包======"
-        - npm run build
-    artifacts: # 将这个job生成的依赖传递给下一个job。需要设置dependencies
-        expire_in: 30 mins # artifacets 的过期时间，因为这些数据都是直接保存在 Gitlab 机器上的，过于久远的资源就可以删除掉了
-        paths: # 需要被传递给下一个job的目录。
-            - dist/
+  stage: build
+  only: # 定义了只有在被merge到了dev分支上 才会执行部署脚本。
+    - njx-dev
+  tags:
+    - vue
+  script:
+    - echo "=====开始依赖安装======"
+    - npm install --verbose --registry=https://registry.npm.taobao.org #安装依赖
+    - echo "=====开始打包======"
+    - npm run build
+  artifacts: # 将这个job生成的依赖传递给下一个job。需要设置dependencies
+    expire_in: 30 mins # artifacets 的过期时间，因为这些数据都是直接保存在 Gitlab 机器上的，过于久远的资源就可以删除掉了
+    paths: # 需要被传递给下一个job的目录。
+      - dist/
 
 project_deploy:
-    stage: deploy
-    only:
-        - njx-dev
-    tags:
-        - vue
-    script:
-        - echo "=====开始部署======"
-        - ls
-        - docker build . -t finance-vue:lastest
-        - docker stop finance-vue-container
-        - docker rm finance-vue-container
-        - docker run -d -p 8084:80 --name finance-vue-container finance-vue:lastest
-        # - sudo cp -r dist/* /usr/local
-        # - sudo cd /usr/local
-        - ls
-        - echo "=====结束部署======"
-
+  stage: deploy
+  only:
+    - njx-dev
+  tags:
+    - vue
+  script:
+    - echo "=====开始部署======"
+    - ls
+    - docker build . -t finance-vue:lastest
+    - docker stop finance-vue-container
+    - docker rm finance-vue-container
+    - docker run -d -p 8084:80 --name finance-vue-container finance-vue:lastest
+    # - sudo cp -r dist/* /usr/local
+    # - sudo cd /usr/local
+    - ls
+    - echo "=====结束部署======"
 ```
 
-
-
-# 修改runner详细配置
+### 修改 runner 详细配置
 
 ```
 vi /etc/gitlab-runner/
@@ -238,7 +223,7 @@ check_interval = 0
         disable_cache = true
         pull_policy = "if-not-present"
         #这是runner的默认镜像；具体镜像maven:3-jdk-8在.gitlab-ci.yml中配置
-        image = "busybox:latest"  
+        image = "busybox:latest"
         helper_image = "gitlab-runner-helper:x86_64-f100a208"
         #映射maven配置
         volumes = ["/home/v_in_docker/:/usr/share/maven/conf2/:rw"]
@@ -260,17 +245,15 @@ net.ipv4.ip_forward=1
 sudo sysctl -p
 ```
 
+### runner 执行器为 docker 时发生的问题：
 
+#### 1、找不到 docker 命令
 
-# runner执行器为docker时发生的问题：
-
-## 1、找不到docker命令
-
-> $ docker info
+> \$ docker info
 > /bin/bash: line 81: docker: command not found
 > ERROR: Job failed: exit code 1
 
-解决：在编写gitlab-runner的docker-compose.yml时候，加上挂载宿主机docker命令。实现`docker in docker`
+解决：在编写 gitlab-runner 的 docker-compose.yml 时候，加上挂载宿主机 docker 命令。实现`docker in docker`
 
 ```
   privileged: true
@@ -281,9 +264,7 @@ sudo sysctl -p
 
 ```
 
-
-
-## 2、没有docker权限
+#### 2、没有 docker 权限
 
 > Got permission denied while trying to connect to the Docker
 
@@ -307,11 +288,8 @@ sudo chmod a+rw /var/run/docker.sock
 
 ```
 
-
-
 ```
 before_script:
   - docker info
   - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" "$CI_REGISTRY"
 ```
-

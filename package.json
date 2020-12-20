@@ -4,12 +4,13 @@
     "description": "收藏夹",
     "main": "index.js",
     "scripts": {
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "dev": "vuepress dev docs",
+        "build": "vuepress build docs"
     },
     "author": "codeniu",
     "license": "ISC",
     "dependencies": {
+        "markdown-it-include": "^2.0.0",
         "vuepress": "^1.7.1"
     }
 }

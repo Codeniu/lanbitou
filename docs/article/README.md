@@ -18,3 +18,7 @@
 原版 [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
 
 中文版 [clean-code-javascript-zh](https://github.com/beginor/clean-code-javascript)
+
+### JavaScript 学习
+
+[JavaScript 开发者应懂的 33 个概念](https://github.com/stephentian/33-js-concepts)
