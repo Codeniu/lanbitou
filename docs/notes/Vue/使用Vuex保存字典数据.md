@@ -1,4 +1,26 @@
-## vue 项目使用 Vuex 保存字典数据
+## 使用 Vuex 保存字典数据
+
+### 准备工作
+
+了解vuex的：State， Mutations，Actions，Getters。
+
+1.state:我们要把我们需要做状态管理的量放到这里来，然后在后面的操作动它
+
+2.mutation:更改 Vuex 的 store 中的状态的唯一方法是提交 mutation
+
+3.actions:
+
+action 类似于 mutation，不同在于：
+
+action 提交的是 mutation，而不是直接变更状态。
+
+action 中可以写异步
+
+4.getters:
+
+官网说：有时候我们需要从 store 中的 state 中派生出一些状态，例如对列表进行过滤并计数。减少我们对这些状态数据的操作
+
+
 
 ### 1.在项目中创建文件夹 store
 
@@ -11,6 +33,10 @@ store 的结构如下，
 作用：入口
 
 不到忘了在`main.js`中导入`import store from './store/index'`
+
+
+
+index.js
 
 ```js
 import Vue from "vue";
@@ -43,6 +69,10 @@ export default store;
 ### 3.创建并编写 getter.js
 
 作用：
+
+
+
+getter.js
 
 ```js
 export default {
@@ -89,6 +119,10 @@ commit("SET_DICT", {
 2.返回数据
 
 `resolve({ option })`
+
+
+
+dict.js
 
 ```js
 import { queryByClaCode } from "@/apis/system";
@@ -151,6 +185,19 @@ this.$store.dispatch("dict/getDictionary", codeName).then((res) => {
 });
 ```
 
-2.通过 mapState 函数
+2.通过 mapGetters函数
 
-暂无
+```js
+import {mapGetters} from 'vuex'
+computed:{
+	...mapGetters([dict['sex']])
+}
+```
+
+3.更新字典
+
+```js
+this.$store.commit('dict/SET_DICT', {'sex':['m':'男','w':'女']});
+```
+
+

@@ -5,7 +5,7 @@ vue 学习笔记
 :::
 
 <!-- prettier-ignore-start -->
-## 一
+
 !!!include(docs/notes/Vue/使用Vuex保存字典数据.md)!!!
 
 <!-- prettier-ignore-end -->
