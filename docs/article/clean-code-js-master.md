@@ -1,8 +1,8 @@
+# JavaScript 风格指南
 本文地址：[beginor/clean-code-js](https://github.com/beginor/clean-code-javascript)
 
 Original Repository: [ryanmcdermott/clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
 
-# JavaScript 风格指南
  
 ## 目录
   1. [介绍](#介绍)
