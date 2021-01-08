@@ -1,4 +1,4 @@
-# 使用`vuepress`+`github page`搭建收藏夹
+# `vuepress`收藏夹
 
 <p align="center">
     <a href="https://codeniu.github.io/lanbitou/"><img src="https://gitee.com/youngniu/pic-bed/raw/master/img/lanbitou.png" width="320px" height="320px"></img></a>
