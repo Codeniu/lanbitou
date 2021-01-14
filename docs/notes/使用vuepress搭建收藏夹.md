@@ -26,9 +26,9 @@
 
 2.vuepress 的界面比较符合我的审美
 
-## 开工
 
-### 1.创建仓库并设置仓库开启 github page
+
+**1.创建仓库并设置仓库开启 github page**
 
 setting->GitHub Pages 下做如下配置：
 
@@ -38,15 +38,21 @@ Branch：gh-pages /root
 
 gh-pages 分支是我们构建好的静态 vue 页面。这个分支在我们第一次提交代码后才会被创建，当然你也可以提前创建。
 
-### 2.克隆这个库在你本地
+
+
+**2.克隆这个库在你本地**
 
 使用 vuepress 进行初始化。
 
 官方文档做了很详尽的说明https://vuepress.vuejs.org/zh/guide/getting-started.html
 
-### 3.完成构建后，可以在本地运行一下看下效果
 
-### 4.部署
+
+**3.完成构建后，可以在本地运行一下看下效果**
+
+
+
+**4.部署**
 
 **1.手动部署**
 

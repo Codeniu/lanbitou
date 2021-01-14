@@ -1,6 +1,8 @@
 ## 使用 Vuex 保存字典数据
 
-### 准备工作
+
+
+**准备工作**
 
 了解vuex的：State， Mutations，Actions，Getters。
 
