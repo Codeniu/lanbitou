@@ -4,6 +4,8 @@
 
 ### 电影
 
+- [寄生虫](https://movie.douban.com/subject/27010768/)	2021.130
+
 - [沐浴之王](https://movie.douban.com/subject/34894753/) 2021.1.17
 
 - [赤焰战场2](https://movie.douban.com/subject/7916027/) 2021.1.17
