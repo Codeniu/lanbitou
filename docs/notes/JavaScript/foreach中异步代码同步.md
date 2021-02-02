@@ -1,6 +1,6 @@
-# forEach循环中调用异步方法，如何实现同步
+## forEach循环中调用异步方法，如何实现同步
 
-### 准备代码：
+**准备代码：**
 
 ```js
 const res = []
@@ -25,7 +25,7 @@ function t2(item){
 
 
 
-### 情况1: forEach内部等待异步执行完成
+**情况1: forEach内部等待异步执行完成**
 
 ```js
 arr.forEach(async (item, index) =>{
@@ -51,7 +51,7 @@ arr.forEach(async (item, index) =>{
 
 
 
-### 情况2：forEach外部等待forEach执行完成
+**情况2：forEach外部等待forEach执行完成**
 
 ```js
 let asyncFun = []
@@ -79,7 +79,7 @@ res (10) [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
 
 
 
-### 情况3: 既需要forEach内部同步执行，又需要forEach外部同步执行
+**情况3: 既需要forEach内部同步执行，又需要forEach外部同步执行**
 
 ```js
 Promise.all(
