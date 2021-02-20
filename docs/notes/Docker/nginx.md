@@ -37,7 +37,7 @@ mkdir -p /usr/dokcer_nginx_data/{conf,conf.d,html,log}
 - 2 启动挂载后的容器
 
 ```
-docker run --name damsp -d -p 18089:80 \
+docker run --name nginx-app -d -p 8089:80 \
 -v /usr/local/niu/mynginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro \
 -v /usr/local/niu/mynginx/log:/var/log/nginx \
 -v /usr/local/niu/mynginx/html:/usr/share/nginx/html \
@@ -126,9 +126,9 @@ http {
 }
 ```
 
-宿主主机的 8089 端口映射到了 nginx 的 80
+宿主主机的 18089 端口映射到了 nginx 的 80
 
-http://39.97.184.218:8089/
+http://39.97.184.218:18089/
 
 效果如下图：
 
@@ -156,7 +156,7 @@ http://39.97.184.218:8089/upload/1.png
 ### 8.--net=host 命令
 
 Docker 中的 host 模式指定是容器与主机享受相同的 network namespace，在这种情况下，我们访问主机端口就能访问我们的容器。比如说我们运行 tomcat 容器并且用
-`-- network=host` 来指定我们的网络模式为 host，这样我们访问本机的 8080 端口就能访问到我们的 tomcat 容器。下面这段是官网对于 host 模式的定义:
+`-- network=host` 来指定我们的网络模式为 host，这样我们访问本机的 8080 端口就能访问到我们的 tomcat 容器。
 
 ### 9 启动第 coral-isc 节点
 
