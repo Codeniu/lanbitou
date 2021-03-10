@@ -4,8 +4,12 @@
 
 ### 电影
 
-| [拆弹专家2](https://movie.douban.com/subject/30171424/?from=subject-page) | 2021.3.1  |
+
+
+| Title                                                        | Date      |
 | ------------------------------------------------------------ | --------- |
+| [寻龙传说](https://movie.douban.com/subject/34804147/?from=showing) | 2021.3.10 |
+| [拆弹专家2](https://movie.douban.com/subject/30171424/?from=subject-page) | 2021.3.1  |
 | [暗战](https://movie.douban.com/subject/1298898/)            | 2021.2.20 |
 | [神奇女侠1984](https://movie.douban.com/subject/27073752/)   | 2021.2.4  |
 | [波拉特2](https://movie.douban.com/subject/4135439/)         | 2021.1.31 |
