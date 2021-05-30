@@ -6,6 +6,8 @@
 
 | Title                                                        | Date      |
 | ------------------------------------------------------------ | --------- |
+| [黑白魔女库伊拉 Cruella](https://movie.douban.com/subject/26703121) | 2021.5.30 |
+| [人之怒 Wrath of Man](https://movie.douban.com/subject/27046740) | 2021.5.30 |
 | [悬崖之上](https://movie.douban.com/subject/32493124/)       | 2021.5.19 |
 | [正义联盟](https://movie.douban.com/subject/2158490/)        | 2021.3.20 |
 | [寻龙传说](https://movie.douban.com/subject/34804147/?from=showing) | 2021.3.10 |
@@ -13,9 +15,11 @@
 | [暗战](https://movie.douban.com/subject/1298898/)            | 2021.2.20 |
 | [神奇女侠1984](https://movie.douban.com/subject/27073752/)   | 2021.2.4  |
 | [波拉特2](https://movie.douban.com/subject/4135439/)         | 2021.1.31 |
-| [寄生虫](https://movie.douban.com/subject/27010768/)         | 2021.130  |
+| [寄生虫](https://movie.douban.com/subject/27010768/)         | 2021.1.30 |
 | [沐浴之王](https://movie.douban.com/subject/34894753/)       | 2021.1.17 |
 | [赤焰战场2](https://movie.douban.com/subject/7916027/)       | 2021.1.17 |
 | [发条橙](https://movie.douban.com/subject/1292233/)          | 2021.1.16 |
 | [爆裂鼓手](https://movie.douban.com/subject/25773932/)       | 2021.1.4  |
+
+
 
