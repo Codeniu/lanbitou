@@ -1,56 +1,64 @@
-const utils = require("./utils");
+const utils = require('./utils')
 
 module.exports = {
-  title: "烂笔头",
-  description: "好记性不如烂笔头",
-  base: "/lanbitou/",
+  title: '烂笔头',
+  description: '好记性不如烂笔头',
+  base: '/lanbitou/',
   head: [
     [
-      "link",
+      'link',
       {
-        rel: "icon",
-        href: "/favicon.ico",
+        rel: 'icon',
+        href: '/favicon.ico',
       },
     ],
   ],
   themeConfig: {
     nav: [
       {
-        text: "首页",
-        link: "/",
+        text: '首页',
+        link: '/',
       },
       {
-        text: "笔记",
-        link: "/notes/",
+        text: '库',
+        link: '/repository/',
       },
       {
-        text: "文章",
-        link: "/article/",
+        text: '网站',
+        link: '/website/',
       },
       {
-        text: "Blog",
-        link: "/blog/",
+        text: '最近在做',
+        link: '/doing/',
+      },
+      {
+        text: 'Blog',
+        link: '/blog/',
+      },
+      {
+        text: '笔记',
+        link: '/notes/',
       },
     ],
     sidebar: utils.inferSiderbars(),
-    lastUpdated: "上次更新",
-    repo: "Codeniu/lanbitou",
+    lastUpdated: '上次更新',
+    repo: 'Codeniu/lanbitou',
     editLinks: true,
-    docsDir: "docs",
-    editLinkText: "在 GitHub 上编辑此页",
+    docsDir: 'docs',
+    editLinkText: '在 GitHub 上编辑此页',
     sidebarDepth: 2,
   },
   configureWebpack: {
     resolve: {
       alias: {
-        "@public": "./public",
+        '@public': './public',
       },
     },
   },
   markdown: {
-    extendMarkdown: (md) => {
+    extendMarkdown: md => {
       // use more markdown-it plugins!
-      md.use(require("markdown-it-include"));
+      md.use(require('markdown-it-include'))
     },
   },
-};
+}

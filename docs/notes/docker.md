@@ -14,13 +14,9 @@ docker 学习笔记
 
 !!!include(docs/notes/Docker/Docker Base Images.md)!!!
 
-!!!include(docs/notes/Docker/Docker Compas.md)!!!
-
 !!!include(docs/notes/Docker/docker-start.md)!!!
 
 !!!include(docs/notes/Docker/Dockerfile-Tomcat-Jdk.md)!!!
-
-!!!include(docs/notes/Docker/nginx.md)!!!
 
 !!!include(docs/notes/Docker/the first docker book.md)!!!
 

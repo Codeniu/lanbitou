@@ -47,7 +47,7 @@ Array.from('niu')
 
 ```js
 function combine(){ 
-    let arr = [].concat.apply([], arguments);  //没有去重复的新数组 
+    let arr = [].concat.apply([], arguments);
     return Array.from(new Set(arr));
 } 
 

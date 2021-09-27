@@ -9,6 +9,10 @@
    gitlab/gitlab-runner:latest
 ```
 
+一些容器运行时需要挂载**/var/run/docker.sock**文件。**这个文件是什么呢？为什么有些容器需要使用它？**简单地说，它是**Docker守护进程(Docker daemon)**默认监听的**Unix域套接字(Unix domain socket)**，容器中的进程可以通过它与Docker守护进程进行通信。这里，便于runner跟docker的守护进程交互。
+
+
+
 ### 注册 runner
 
 ```
@@ -28,15 +32,15 @@ gitlab-runner register
 
 ```
 
-1. 输入 gitlab 的服务 URL
-2. 输入 gitlab-ci 的 Toekn
-3. 关于集成服务中对于这个 runner 的描述
-4. 给这个 gitlab-runner 输入一个标记，这个 tag 非常重要，在后续的使用过程中需要使用这个 tag 来指定 gitlab-runner
-5. 是否运行在没有 tag 的 build 上面。在配置 gitlab-ci 的时候，会有很多 job，每个 job 可以通过 tags 属性来选择 runner。这里为 true 表示如果 job 没有配置 tags，也执行
-6. 是否锁定 runner 到当前项目
-7. 选择执行器，gitlab-runner 实现了很多执行器，可用在不同场景中运行构建，详情可见[GitLab Runner Executors](https://docs.gitlab.com/runner/executors/README.html)，这里选用 Docker 模式
+1. --url 输入 gitlab 的服务 URL
+2. --registration-token 输入 gitlab-ci 的 Toekn
+3. --tls-ca-file 关于集成服务中对于这个 runner 的描述
+4. --tag-list 给这个 gitlab-runner 输入一个标记，这个 tag 非常重要，在后续的使用过程中需要使用这个 tag 来指定 gitlab-runner
+5. --run-untagged 是否运行在没有 tag 的 build 上面。在配置 gitlab-ci 的时候，会有很多 job，每个 job 可以通过 tags 属性来选择 runner。这里为 true 表示如果 job 没有配置 tags，也执行
+6. --locked 是否锁定 runner 到当前项目
+7. --executor 选择执行器，gitlab-runner 实现了很多执行器，可用在不同场景中运行构建，详情可见[GitLab Runner Executors](https://docs.gitlab.com/runner/executors/README.html)，这里选用 Docker 模式
 
-#CICD
+
 
 ### runner 的基本命令
 

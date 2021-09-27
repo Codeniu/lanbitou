@@ -38,7 +38,7 @@ store 的结构如下，
 
 
 
-index.js
+index.js：整合modules
 
 ```js
 import Vue from "vue";
@@ -201,5 +201,4 @@ computed:{
 ```js
 this.$store.commit('dict/SET_DICT', {'sex':['m':'男','w':'女']});
 ```
-
 
