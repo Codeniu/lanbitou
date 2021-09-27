@@ -8,6 +8,9 @@
 | ------------------------------------------------------------ | ---------- |
 | [失控玩家](https://movie.douban.com/subject/30337388/)       | 2021-09-27 |
 | [鱿鱼游戏](https://movie.douban.com/subject/34812928/)       | 2021-09-25 |
+| [黑白魔女库伊拉](https://movie.douban.com/subject/26703121) | 2021.5.30 |
+| [人之怒](https://movie.douban.com/subject/27046740) | 2021.5.30 |
+| [悬崖之上](https://movie.douban.com/subject/32493124/)       | 2021.5.19 |
 | [正义联盟](https://movie.douban.com/subject/2158490/)        | 2021.3.20  |
 | [寻龙传说](https://movie.douban.com/subject/34804147/?from=showing) | 2021.3.10  |
 | [拆弹专家2](https://movie.douban.com/subject/30171424/?from=subject-page) | 2021.3.1   |
@@ -19,4 +22,6 @@
 | [赤焰战场2](https://movie.douban.com/subject/7916027/)       | 2021.1.17  |
 | [发条橙](https://movie.douban.com/subject/1292233/)          | 2021.1.16  |
 | [爆裂鼓手](https://movie.douban.com/subject/25773932/)       | 2021.1.4   |
+
+
 
