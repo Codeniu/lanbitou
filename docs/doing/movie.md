@@ -6,7 +6,8 @@
 
 | Title            | Date       |
 | ---------------- | ---------- |
-| [最后生还者](https://movie.douban.com/subject/25848328/)         | 2022-03-028 |
+| [最后生还者](https://movie.douban.com/subject/25848328/)         | 2023-01-03 |
+| [三体](https://movie.douban.com/subject/26647087/)         | 2023-01-31 |
 
 ## 2022
 
@@ -17,6 +18,14 @@
 | 绿色星球         | 2022-03-01 |
 | 这个杀手不太冷静 | 2022-03-05 |
 
+### 电视剧
+
+| Title            | Date       |
+| ---------------- | ---------- |
+| [星期三](https://movie.douban.com/subject/35364243/)         | 2022-12-02 |
+| [安多（第一季）](https://movie.douban.com/subject/30376895/)         | 2022-09-02 |
+| [塔尔萨之王（第一季）](https://movie.douban.com/subject/35814636/)         | 2022-08-02 |
+| [黑暗荣耀](https://movie.douban.com/subject/35314632/)         | 2022-12-02 |
 
 ## 2021
 
