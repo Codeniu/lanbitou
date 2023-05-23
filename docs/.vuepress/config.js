@@ -1,9 +1,17 @@
 const utils = require('./utils')
+const sidebarMap = require('./sidebarMap.js')
+
+const dynamicNav = sidebarMap.map(v => {
+  return {
+    text: v.title,
+    link: `/${v.dirname}/`,
+  }
+})
 
 module.exports = {
   title: '烂笔头',
   description: '好记性不如烂笔头',
-//   base: '/lanbitou/',
+  //   base: '/lanbitou/',
   head: [
     [
       'link',
@@ -16,29 +24,11 @@ module.exports = {
   themeConfig: {
     nav: [
       {
-        text: '首页',
+        text: 'Home',
         link: '/',
       },
-      {
-        text: '库',
-        link: '/repository/',
-      },
-      {
-        text: '网站',
-        link: '/website/',
-      },
-      {
-        text: '最近在做',
-        link: '/doing/',
-      },
-      {
-        text: 'Blog',
-        link: '/blog/',
-      },
-      {
-        text: '笔记',
-        link: '/notes/',
-      },
+
+      ...dynamicNav,
     ],
     sidebar: utils.inferSiderbars(),
     lastUpdated: '上次更新',
