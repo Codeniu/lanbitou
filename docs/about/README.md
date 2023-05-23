@@ -1,4 +1,6 @@
-# About
+<h1 style="text-align:center">
+  About
+</h1>
 
 <figure><embed src="https://wakatime.com/share/@codeniu/373cc1a9-531a-4bbc-9862-037c0614ac23.svg"></embed></figure>
 
